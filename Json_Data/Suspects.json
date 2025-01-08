@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Gene Aubergine",
+    "age": 35,
+    "height": 190
+  },
+  {
+    "id": 2,
+    "name": "Jeffrey Lugger",
+    "age": 44,
+    "height": 180
+  }
+]
