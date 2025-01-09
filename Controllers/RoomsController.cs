@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MurderAPI.Entities;
 using MurderAPI.Services;
+using Newtonsoft.Json.Linq;
 
 namespace MurderAPI.Controllers
 {
@@ -18,7 +19,7 @@ namespace MurderAPI.Controllers
         [HttpGet]
         public IActionResult GetAllRooms()
         {
-            if (_roomsService.GetAllRooms(out List<Room>? result)) return Ok(result);
+            if (_roomsService.GetAllRooms(out string? result)) return Ok(result);
             return BadRequest("Cannot find rooms.");
         }
 
