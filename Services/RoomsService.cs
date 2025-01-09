@@ -11,7 +11,7 @@ namespace MurderAPI.Services
     public interface IRoomsService
     {
         bool GetAllRooms(out string? result);
-        bool GetRoomByName(string name, out Room? result);
+        bool GetRoomByName(string name, out string? result);
     }
     public class RoomsService : IRoomsService
     {
@@ -28,21 +28,28 @@ namespace MurderAPI.Services
             result = null;
             if(allRooms == null) return false;
 
-            //foreach (Room room in allRooms!) room.Clues = null;
-
             result = JsonConvert.SerializeObject(allRooms,
             Formatting.Indented,
             new JsonSerializerSettings
             {
-                ContractResolver = new IgnorePropertiesResolver("Clues")
+                ContractResolver = new IgnorePropertiesResolver("Id", "Impressions", "PlacesToSearch")
             });
             return true;
         }
 
-        public bool GetRoomByName(string name, out Room? result)
+        public bool GetRoomByName(string name, out string? result)
         {
-            result = _roomsModel.GetRoomByName(name);
-            return result != null;
+            Room? room = _roomsModel.GetRoomByName(name);
+            result = null;
+            if(room == null) return false;
+
+            result = JsonConvert.SerializeObject(room,
+            Formatting.Indented,
+            new JsonSerializerSettings
+            {
+                ContractResolver = new IgnorePropertiesResolver("Id", "IsLocked")
+            });
+            return true;
         }
     }
 }

@@ -7,8 +7,8 @@ namespace MurderAPI.Entities
         [JsonPropertyName("Id")]
         public int Id { get; set; }
 
-        [JsonPropertyName("Name")]
-        public string? Name { get; set; }
+        [JsonPropertyName("Room")]
+        public string? RoomName { get; set; }
 
         [JsonPropertyName("Floor")]
         public int Floor { get; set; }
@@ -16,7 +16,10 @@ namespace MurderAPI.Entities
         [JsonPropertyName("IsLocked")]
         public bool IsLocked { get; set; }
 
-        [JsonPropertyName("Clues")]
-        public string? Clues { get; set; }
+        [JsonPropertyName("Impressions")]
+        public string? Impressions { get; set; }
+
+        [JsonPropertyName("PlacesToSearch")]
+        public string[]? PlacesToSearch { get; set; }
     }
 }

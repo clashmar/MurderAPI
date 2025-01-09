@@ -16,7 +16,7 @@ namespace MurderAPI.Models
         }
         public Room? GetRoomByName(string name)
         {
-            return GetAllRooms()?.FirstOrDefault(r => r.Name.ToLower() == name.ToLower());
+            return GetAllRooms()?.FirstOrDefault(r => r.RoomName!.ToLower() == name.ToLower());
         }
     }
 }
