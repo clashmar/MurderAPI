@@ -1,10 +1,11 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Text.Json.Nodes;
+using System.Text.Json.Serialization;
 
 namespace MurderAPI.Entities
 {
     public class Room
     {
-        [JsonPropertyName("Id")]
+        [JsonPropertyName("RoomId")]
         public int Id { get; set; }
 
         [JsonPropertyName("Room")]
@@ -19,7 +20,7 @@ namespace MurderAPI.Entities
         [JsonPropertyName("Impressions")]
         public string? Impressions { get; set; }
 
-        [JsonPropertyName("PlacesToSearch")]
-        public string[]? PlacesToSearch { get; set; }
+        //[JsonPropertyName("PlacesToSearch")]
+        //public JsonObject[]? PlacesToSearch { get; set; }
     }
 }

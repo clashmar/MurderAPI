@@ -1,25 +1,20 @@
 [
   {
-    "Id": 1,
+    "RoomId": 1,
     "Room": "Kitchen",
     "Floor": 0,
     "IsLocked": false,
-    "Impressions": "Two martini glasses sit on the laminate counter-top. One has red lipstick on the rim.",
-    "PlacesToSearch": [
-      "Drawers",
-      "Fridge",
-      "Trash"
-    ]
+    "Impressions": "Two martini glasses sit on the laminate counter-top. One has red lipstick on the rim."
   },
   {
-    "Id": 2,
+    "RoomId": 2,
     "Room": "Master Bedroom",
     "Floor": 1,
     "IsLocked": false,
     "Impressions": "Lorem Ipsum"
   },
   {
-    "Id": 3,
+    "RoomId": 3,
     "Room": "Basement",
     "floor": -1,
     "IsLocked": true,

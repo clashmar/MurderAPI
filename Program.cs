@@ -9,6 +9,8 @@ builder.Services.AddScoped<ISuspectsModel, SuspectsModel>();
 builder.Services.AddScoped<ISuspectsService, SuspectsService>();
 builder.Services.AddScoped<IRoomsModel, RoomsModel>();
 builder.Services.AddScoped<IRoomsService, RoomsService>();
+builder.Services.AddScoped<IPlacesToSearchModel, PlacesToSearchModel>();
+builder.Services.AddScoped<IPlacesToSearchService, PlacesToSearchService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

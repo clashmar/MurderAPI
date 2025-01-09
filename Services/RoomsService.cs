@@ -32,7 +32,7 @@ namespace MurderAPI.Services
             Formatting.Indented,
             new JsonSerializerSettings
             {
-                ContractResolver = new IgnorePropertiesResolver("Id", "Impressions", "PlacesToSearch")
+                ContractResolver = new IgnorePropertiesResolver("Id", "Impressions")
             });
             return true;
         }
