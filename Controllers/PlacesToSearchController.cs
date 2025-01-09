@@ -19,7 +19,15 @@ namespace MurderAPI.Controllers
         public IActionResult GetPlaceToSearch(string roomName, string placeName)
         {
             if (_placesToSearchService.GetPlaceToSearch(roomName, placeName, out PlaceToSearch? result)) return Ok(result);
-            return BadRequest("Cannot search there.");
+            return BadRequest("Not a valid location.");
+        }
+
+        [HttpGet]
+        [Route("/Rooms/Basement/{placeName}")]
+        public IActionResult GetPlaceToSearchInBasement(string placeName)
+        {
+            if (_placesToSearchService.GetPlaceToSearch("basement", placeName, out PlaceToSearch? result)) return Ok(result);
+            return BadRequest("Not a valid location.");
         }
     }
 }

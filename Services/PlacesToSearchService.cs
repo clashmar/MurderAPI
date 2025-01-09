@@ -21,17 +21,17 @@ namespace MurderAPI.Services
         public bool GetPlaceToSearch(string roomName, string placeName, out PlaceToSearch? result)
         {
             result = null;
-            List<Room>? allRooms = _roomsModel.GetAllRooms();
-            if(allRooms == null) return false;
+            Room? room = _roomsModel.GetAllRooms()!.FirstOrDefault(r => r.RoomName!.ToLower() == roomName.ToLower());
+            if(room == null) return false;
 
             List<PlaceToSearch>? allPlacesToSearch = _placesToSearchModel.GetAllPlacesToSearch();
             if (allPlacesToSearch == null) return false;
 
             result = allPlacesToSearch!
-                .Where(p => p.RoomId == allRooms!.FirstOrDefault(r => r.RoomName!.ToLower() == roomName.ToLower())!.Id)
-                .Where(p => p.PlaceName!.ToLower() == placeName.ToLower())
+                .Where(p => p.RoomId == room.Id && p.PlaceName!.ToLower() == placeName.ToLower())
                 .FirstOrDefault();
 
+            if(result == null) return false;
             return true;
         }
     }

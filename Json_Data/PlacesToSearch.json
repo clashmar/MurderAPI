@@ -3,5 +3,10 @@
     "RoomId": 1,
     "PlaceName": "Drawers",
     "PossibleClues": "You can't find anything useful."
+  },
+  {
+    "RoomId": 3,
+    "PlaceName": "Golden Scales",
+    "PossibleClues": "In front of you is a set of golden scales."
   }
 ]
