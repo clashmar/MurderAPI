@@ -4,19 +4,19 @@ namespace MurderAPI.Entities
 {
     public class Room
     {
-        [JsonPropertyName("id")]
+        [JsonPropertyName("Id")]
         public int Id { get; set; }
 
-        [JsonPropertyName("name")]
+        [JsonPropertyName("Name")]
         public string? Name { get; set; }
 
-        [JsonPropertyName("floor")]
+        [JsonPropertyName("Floor")]
         public int Floor { get; set; }
 
-        [JsonPropertyName("isLocked")]
+        [JsonPropertyName("IsLocked")]
         public bool IsLocked { get; set; }
 
-        [JsonPropertyName("clues")]
+        [JsonPropertyName("Clues")]
         public string? Clues { get; set; }
     }
 }

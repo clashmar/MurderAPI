@@ -1,7 +1,7 @@
 ﻿using MurderAPI.Entities;
 using MurderAPI.Helpers;
 using MurderAPI.Models;
-//using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System.Text.Json.Serialization;
 using System.Text.Json;
 using Newtonsoft.Json.Linq;
@@ -28,13 +28,13 @@ namespace MurderAPI.Services
             result = null;
             if(allRooms == null) return false;
 
-            foreach (Room room in allRooms!) room.Clues = null;
-  
-            result = JsonSerializer.Serialize(allRooms,
-            new JsonSerializerOptions
+            //foreach (Room room in allRooms!) room.Clues = null;
+
+            result = JsonConvert.SerializeObject(allRooms,
+            Formatting.Indented,
+            new JsonSerializerSettings
             {
-                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
-                WriteIndented = true
+                ContractResolver = new IgnorePropertiesResolver("Clues")
             });
             return true;
         }

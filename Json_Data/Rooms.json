@@ -1,23 +1,23 @@
 [
   {
-    "id": 1,
-    "name": "kitchen",
-    "floor": 0,
-    "isLocked": false,
-    "clues": "Two martini glasses sit on the laminate counter-top. One has red lipstick on the rim."
+    "Id": 1,
+    "Name": "kitchen",
+    "Floor": 0,
+    "IsLocked": false,
+    "Clues": "Two martini glasses sit on the laminate counter-top. One has red lipstick on the rim."
   },
   {
-    "id": 2,
-    "name": "master bedroom",
-    "floor": 1,
-    "isLocked": false,
-    "clues": "Lorem Ipsum"
+    "Id": 2,
+    "Name": "master bedroom",
+    "Floor": 1,
+    "IsLocked": false,
+    "Clues": "Lorem Ipsum"
   },
   {
-    "id": 3,
-    "name": "basement",
+    "Id": 3,
+    "Name": "basement",
     "floor": -1,
-    "isLocked": true,
-    "clues": "You can't see a thing"
+    "IsLocked": true,
+    "Clues": "You can't see a thing"
   }
 ]
