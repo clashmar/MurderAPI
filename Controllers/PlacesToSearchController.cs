@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MurderAPI.Entities;
 using MurderAPI.Services;
 
@@ -18,15 +19,16 @@ namespace MurderAPI.Controllers
         [Route("/Rooms/{roomName}/{placeName}")] 
         public IActionResult GetPlaceToSearch(string roomName, string placeName)
         {
-            if (_placesToSearchService.GetPlaceToSearch(roomName, placeName, out PlaceToSearch? result)) return Ok(result);
+            if (_placesToSearchService.GetPlaceToSearch(roomName, placeName, out string? result)) return Ok(result);
             return BadRequest("Not a valid location.");
         }
 
         [HttpGet]
+        [Authorize]
         [Route("/Rooms/Basement/{placeName}")]
         public IActionResult GetPlaceToSearchInBasement(string placeName)
         {
-            if (_placesToSearchService.GetPlaceToSearch("basement", placeName, out PlaceToSearch? result)) return Ok(result);
+            if (_placesToSearchService.GetPlaceToSearch("basement", placeName, out string? result)) return Ok(result);
             return BadRequest("Not a valid location.");
         }
     }

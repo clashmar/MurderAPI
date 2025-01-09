@@ -1,11 +1,13 @@
 ﻿using MurderAPI.Entities;
+using MurderAPI.Helpers;
 using MurderAPI.Models;
+using Newtonsoft.Json;
 
 namespace MurderAPI.Services
 {
     public interface IPlacesToSearchService
     {
-        bool GetPlaceToSearch(string roomName, string placeName, out PlaceToSearch? result);
+        bool GetPlaceToSearch(string roomName, string placeName, out string? result);
     }
     public class PlacesToSearchService : IPlacesToSearchService
     {
@@ -18,7 +20,7 @@ namespace MurderAPI.Services
             _roomsModel = roomsModel;
         }
 
-        public bool GetPlaceToSearch(string roomName, string placeName, out PlaceToSearch? result)
+        public bool GetPlaceToSearch(string roomName, string placeName, out string? result)
         {
             result = null;
             Room? room = _roomsModel.GetAllRooms()!.FirstOrDefault(r => r.RoomName!.ToLower() == roomName.ToLower());
@@ -27,11 +29,17 @@ namespace MurderAPI.Services
             List<PlaceToSearch>? allPlacesToSearch = _placesToSearchModel.GetAllPlacesToSearch();
             if (allPlacesToSearch == null) return false;
 
-            result = allPlacesToSearch!
+            PlaceToSearch? placeToSearch = allPlacesToSearch!
                 .Where(p => p.RoomId == room.Id && p.PlaceName!.ToLower() == placeName.ToLower())
                 .FirstOrDefault();
+            if (placeToSearch == null) return false;
 
-            if(result == null) return false;
+            result = JsonConvert.SerializeObject(placeToSearch,
+            Formatting.Indented,
+            new JsonSerializerSettings
+            {
+                ContractResolver = new IgnorePropertiesResolver("RoomId")
+            });
             return true;
         }
     }
